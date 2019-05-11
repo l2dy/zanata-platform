@@ -33,11 +33,9 @@ import org.apache.commons.io.IOUtils;
 
 /**
  * Adapter to handle HTML documents.
- * This adapter outputs HTML files in ASCII encoding by default to force the use
- * of CERs.
- * It uses the Okapi's {@link net.sf.okapi.filters.html.HtmlFilter} class, and
- * specifically its escapeCharacters configuration parameter to make sure all
- * HTML entities get encoded.
+ * This adapter uses the Okapi's {@link net.sf.okapi.filters.html.HtmlFilter}
+ * class, and specifically its escapeCharacters configuration parameter to make
+ * sure all HTML entities get encoded.
  */
 public class HTMLAdapter extends OkapiFilterAdapter {
 
@@ -70,8 +68,7 @@ public class HTMLAdapter extends OkapiFilterAdapter {
 
     @Override
     protected String getOutputEncoding() {
-        // Using ASCII encoding for HTML to force the output of CERs
-        return "ascii";
+        return Charsets.UTF_8.name();
     }
 
     @Override
